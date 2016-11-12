@@ -3,18 +3,16 @@
 <% end %>
 
 <% content_for :sidebar do %>
-  <header id="page_tab_summary" data-hook>
-    <dl class="additional-info">
-      <dt id="page_accessible" data-hook><%= Spree.t('essential_content.page.accessibility') %>:</dt>
-      <dd>
-        <%= page.accessible ? "<span class='state complete'>Accessible</span>".html_safe : "<span class='state pending'>Not Accessible</span>".html_safe %>
-        </dd>
-      <dt data-hook><%= Spree.t('essential_content.page.visible') %>:</dt>
-      <dd id='page_visible'>
-        <%= page.visible ? "<span class='state complete'>Visible</span>".html_safe : "<span class='state pending'>Hidden</span>".html_safe %>
-      </dd>
-    </dl>
-  </header>
+  <div class="row">
+    <div class="col-md-6">
+      <%= Spree.t("essential_content.page.accessible") %>:
+      <%= page.accessible ? '<span class="label label-success">Yes</span>'.html_safe : '<span class="label label-danger">No</span>'.html_safe %>
+    </div>
+    <div class="col-md-6">
+      <%= Spree.t('essential_content.page.visible') %>:
+      <%= page.visible ? '<span class="label label-success">Yes</span>'.html_safe : '<span class="label label-danger">No</span>'.html_safe %>
+    </div>
+  </div>
 
   <ul class="nav nav-pills nav-stacked post-menu" data-hook="admin_pages_tabs">
     <%= content_tag :li, class: ('active' if current == "Page Details") do %>
