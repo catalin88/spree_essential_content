@@ -8,7 +8,7 @@
 
 <%= paginate @collection %>
 
-<table class="index sortable" data-sortable-link="<%= update_positions_admin_page_contents_url(@page) -%>">
+<table class="table sortable" data-sortable-link="<%= update_positions_admin_page_contents_url(@page) -%>">
   <colgroup>
      <col style="width: 5%">
      <col style="width: 50%">
@@ -26,7 +26,7 @@
     <%- @collection.each do |content|%>
     <tr id="<%= spree_dom_id content %>">
       <td class="no-border">
-        <span class="handle"></span>
+        <span class="icon icon-move handle"></span>
       </td>
       <td><%= link_to content.title, object_url(content) %></td>
       <td><%= content.context %>
